@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mi CV Profesional</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:light;
+  --bg:#f8f1ec; --surface:#ffffff; --text:#2a1519; --muted:#6f5a5e;
+  --burg:#6d1a2b; --burg-d:#4a0e1c; --gold:#c9a66b; --line:#e8d9d2; --on-burg:#f8f1ec;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark; --bg:#1a0a0e; --surface:#2a1219; --text:#f3e7e2; --muted:#b9a0a4;
+    --burg:#8c2438; --burg-d:#3a0b16; --line:#46222c;
+  }
+}
+:root[data-theme="dark"]{color-scheme:dark; --bg:#1a0a0e; --surface:#2a1219; --text:#f3e7e2; --muted:#b9a0a4; --burg:#8c2438; --burg-d:#3a0b16; --line:#46222c;}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 Inter,system-ui,sans-serif}
+h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:0;line-height:1.2}
+img{max-width:100%}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--burg-d);z-index:30}
+/* barra */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--burg-d);color:var(--on-burg);display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 20px}
+.bar nav{display:flex;gap:16px;overflow-x:auto;white-space:nowrap}
+.bar a{color:var(--on-burg);text-decoration:none;font-size:14px;opacity:.85}
+.bar a:hover{opacity:1;color:var(--gold)}
+.tools{display:flex;gap:8px;flex-shrink:0}
+.btn{border:1px solid var(--gold);background:transparent;color:var(--gold);padding:7px 14px;border-radius:999px;font:600 13px Inter,sans-serif;cursor:pointer}
+.btn:hover{background:var(--gold);color:var(--burg-d)}
+.btn.solid{background:var(--gold);color:var(--burg-d)}
+/* hero */
+.hero{background:linear-gradient(135deg,var(--burg-d),var(--burg));color:var(--on-burg);padding:64px 20px}
+.wrap{max-width:980px;margin:0 auto}
+.hero .wrap{display:flex;gap:40px;align-items:center;flex-wrap:wrap}
+.photo{position:relative;width:200px;height:200px;border-radius:50%;border:4px solid var(--gold);overflow:hidden;background:var(--burg-d);flex-shrink:0;display:grid;place-items:center}
+.photo img{width:100%;height:100%;object-fit:cover;display:none}
+.photo.has img{display:block}
+.photo span{font-size:13px;text-align:center;padding:16px;color:var(--gold)}
+.photo.has span{display:none}
+.editing .photo{cursor:pointer;outline:2px dashed var(--gold);outline-offset:4px}
+.hero h1{font-size:clamp(2rem,6vw,3.2rem)}
+.hero .role{color:var(--gold);font-size:1.2rem;margin:6px 0 14px;font-weight:500}
+.hero p{max-width:520px;margin:0 0 22px;opacity:.92}
+.cta{display:inline-block;background:var(--gold);color:var(--burg-d);padding:11px 24px;border-radius:999px;font-weight:600;text-decoration:none}
+/* secciones */
+section{padding:56px 20px}
+section:nth-of-type(even){background:var(--surface)}
+h2{font-size:1.9rem;color:var(--burg);margin-bottom:6px}
+:root[data-theme="dark"] h2{color:var(--gold)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) h2{color:var(--gold)}}
+h2::after{content:"";display:block;width:56px;height:3px;background:var(--gold);margin:10px 0 28px}
+.item{position:relative;display:grid;grid-template-columns:150px 1fr;gap:18px;padding:0 0 24px 18px;margin-bottom:24px;border-left:3px solid var(--burg);border-bottom:1px solid var(--line)}
+.when{color:var(--burg);font-weight:600;font-size:14px}
+:root[data-theme="dark"] .when{color:var(--gold)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .when{color:var(--gold)}}
+.item h3{font-size:1.2rem}
+.org{color:var(--muted);font-weight:500;margin:2px 0 8px}
+.item p{margin:0}
+.tags{display:flex;flex-wrap:wrap;gap:10px}
+.tag{position:relative;background:var(--burg);color:var(--on-burg);padding:6px 16px;border-radius:999px;font-size:14px}
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px}
+.dip{position:relative;margin:0;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.dip img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;cursor:zoom-in}
+.dip figcaption{padding:10px 12px;font-size:14px;text-align:center}
+.empty{color:var(--muted);font-style:italic}
+.contact{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+section:nth-of-type(even) .card{background:var(--bg)}
+.card b{display:block;color:var(--gold);font-size:12px;text-transform:uppercase;letter-spacing:.08em}
+footer{background:var(--burg-d);color:var(--on-burg);text-align:center;padding:24px 20px;font-size:14px}
+/* edición */
+.del,.add,.hint{display:none}
+.editing .del{display:grid}
+.editing .add{display:inline-block}
+.del{position:absolute;top:-6px;right:-6px;width:24px;height:24px;border-radius:50%;border:0;background:#b3261e;color:#fff;font-size:15px;line-height:1;cursor:pointer;place-items:center;padding:0;z-index:2}
+.item .del{top:0;right:0}
+.add{margin-top:14px;border:2px dashed var(--burg);background:transparent;color:var(--burg);padding:9px 18px;border-radius:10px;font:600 14px Inter,sans-serif;cursor:pointer}
+:root[data-theme="dark"] .add{color:var(--gold);border-color:var(--gold)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .add{color:var(--gold);border-color:var(--gold)}}
+.editing .hint{display:block;background:var(--gold);color:var(--burg-d);text-align:center;padding:8px 16px;font-size:14px;font-weight:500}
+.editing [contenteditable="true"]{outline:1px dashed rgba(201,166,107,.7);outline-offset:3px;border-radius:3px}
+.editing [contenteditable="true"]:focus{outline:2px solid var(--gold);background:rgba(201,166,107,.12)}
+.lb{position:fixed;inset:0;background:rgba(20,5,9,.92);display:none;place-items:center;z-index:50;padding:20px;cursor:zoom-out}
+.lb.on{display:grid}
+.lb img{max-height:92vh;border-radius:8px}
+@media (max-width:640px){.item{grid-template-columns:1fr;gap:6px}.hero{padding:40px 20px}.bar nav{display:none}}
+@media print{.bar,.hint,.del,.add,.tools,body::before{display:none!important}section{padding:24px 20px}}
+</style>
+</head>
+<body>
+<header class="bar">
+  <nav><a href="#sobre">Sobre mí</a><a href="#experiencia">Experiencia</a><a href="#formacion">Formación</a><a href="#habilidades">Habilidades</a><a href="#diplomas">Diplomas</a><a href="#contacto">Contacto</a></nav>
+  <div class="tools"><button class="btn" id="print">PDF</button><button class="btn solid" id="toggle">✏️ Editar</button></div>
+</header>
+<div class="hint">Modo edición: haz clic en cualquier texto para modificarlo, toca la foto para cambiarla y usa los botones “+” y “×” para añadir o quitar elementos. Se guarda automáticamente en este navegador.</div>
+
+<main id="cv">
+<div class="hero"><div class="wrap">
+  <div class="photo" id="photo"><img alt="Foto personal"><span>Toca para añadir tu foto (modo edición)</span></div>
+  <div>
+    <h1 class="e">Nombre Apellido</h1>
+    <div class="role e">Tu profesión o cargo</div>
+    <p class="e">Una frase breve que resuma tu perfil profesional, tus años de experiencia y el valor que aportas.</p>
+    <a class="cta" href="#contacto">Contáctame</a>
+  </div>
+</div></div>
+
+<section id="sobre"><div class="wrap">
+  <h2 class="e">Sobre mí</h2>
+  <p class="e">Escribe aquí un párrafo sobre ti: tu trayectoria, tus intereses profesionales, tus valores y lo que buscas en tu próximo reto. Puedes editar este texto libremente.</p>
+</div></section>
+
+<section id="experiencia"><div class="wrap">
+  <h2 class="e">Experiencia profesional</h2>
+  <div class="list" data-list="exp">
+    <article class="item"><button class="del">×</button><div class="when e">2022 – Actualidad</div><div><h3 class="e">Cargo o puesto</h3><p class="org e">Empresa · Ciudad</p><p class="e">Describe tus responsabilidades principales y logros medibles.</p></div></article>
+    <article class="item"><button class="del">×</button><div class="when e">2019 – 2022</div><div><h3 class="e">Cargo o puesto</h3><p class="org e">Empresa · Ciudad</p><p class="e">Describe tus responsabilidades principales y logros medibles.</p></div></article>
+  </div>
+  <button class="add" data-add="exp">+ Añadir experiencia</button>
+</div></section>
+
+<section id="formacion"><div class="wrap">
+  <h2 class="e">Formación académica</h2>
+  <div class="list" data-list="edu">
+    <article class="item"><button class="del">×</button><div class="when e">2014 – 2018</div><div><h3 class="e">Título universitario</h3><p class="org e">Universidad · País</p><p class="e">Mención, especialidad o proyecto destacado.</p></div></article>
+  </div>
+  <button class="add" data-add="edu">+ Añadir formación</button>
+</div></section>
+
+<section id="habilidades"><div class="wrap">
+  <h2 class="e">Habilidades</h2>
+  <div class="tags" data-list="skill">
+    <span class="tag"><button class="del">×</button><span class="e">Liderazgo</span></span>
+    <span class="tag"><button class="del">×</button><span class="e">Comunicación</span></span>
+    <span class="tag"><button class="del">×</button><span class="e">Gestión de proyectos</span></span>
+    <span class="tag"><button class="del">×</button><span class="e">Inglés avanzado</span></span>
+  </div>
+  <button class="add" data-add="skill">+ Añadir habilidad</button>
+</div></section>
+
+<section id="diplomas"><div class="wrap">
+  <h2 class="e">Diplomas y certificados</h2>
+  <div class="gal" id="gal" data-list="dip"></div>
+  <p class="empty" id="empty">Aún no hay diplomas. Activa el modo edición y sube tus imágenes JPG.</p>
+  <button class="add" id="addDip">+ Subir diplomas (JPG)</button>
+</div></section>
+
+<section id="contacto"><div class="wrap">
+  <h2 class="e">Contacto</h2>
+  <div class="contact">
+    <div class="card"><b>Correo</b><span class="e">tucorreo@ejemplo.com</span></div>
+    <div class="card"><b>Teléfono</b><span class="e">+00 000 000 000</span></div>
+    <div class="card"><b>Ubicación</b><span class="e">Ciudad, País</span></div>
+    <div class="card"><b>LinkedIn</b><span class="e">linkedin.com/in/tu-perfil</span></div>
+  </div>
+</div></section>
+</main>
+
+<footer><span class="e" id="foot">© 2026 Nombre Apellido · Todos los derechos reservados</span></footer>
+<div class="lb" id="lb"><img alt=""></div>
+<input type="file" id="fPhoto" accept="image/*" hidden>
+<input type="file" id="fDip" accept="image/jpeg,image/jpg,image/*" multiple hidden>
+
+<script>
+(function(){
+  var KEY='cv-landing-v1', cv=document.getElementById('cv'), foot=document.getElementById('foot');
+  var T={
+    exp:'<article class="item"><button class="del">×</button><div class="when e">2020 – 2022</div><div><h3 class="e">Cargo o puesto</h3><p class="org e">Empresa · Ciudad</p><p class="e">Describe tus logros.</p></div></article>',
+    edu:'<article class="item"><button class="del">×</button><div class="when e">Año – Año</div><div><h3 class="e">Título o curso</h3><p class="org e">Institución · País</p><p class="e">Detalles opcionales.</p></div></article>',
+    skill:'<span class="tag"><button class="del">×</button><span class="e">Nueva habilidad</span></span>'
+  };
+  function setEdit(on){
+    document.body.classList.toggle('editing',on);
+    document.querySelectorAll('.e').forEach(function(n){ if(on) n.setAttribute('contenteditable','true'); else n.removeAttribute('contenteditable'); });
+    document.getElementById('toggle').textContent=on?'✔ Terminar':'✏️ Editar';
+  }
+  function save(){
+    var was=document.body.classList.contains('editing');
+    try{
+      var clone=cv.cloneNode(true);
+      clone.querySelectorAll('[contenteditable]').forEach(function(n){n.removeAttribute('contenteditable')});
+      localStorage.setItem(KEY,JSON.stringify({html:clone.innerHTML,foot:foot.textContent}));
+    }catch(e){ if(was) alert('No se pudo guardar: las imágenes ocupan demasiado espacio. Elimina alguna o usa imágenes más pequeñas.'); }
+  }
+  function load(){
+    try{
+      var d=JSON.parse(localStorage.getItem(KEY)||'null');
+      if(d&&d.html){cv.innerHTML=d.html; if(d.foot) foot.textContent=d.foot;}
+    }catch(e){}
+    refresh();
+  }
+  function refresh(){
+    var n=document.querySelectorAll('#gal .dip').length;
+    document.getElementById('empty').style.display=n?'none':'block';
+  }
+  function resize(file,cb){
+    var r=new FileReader();
+    r.onload=function(){
+      var im=new Image();
+      im.onload=function(){
+        var m=1400,s=Math.min(1,m/Math.max(im.width,im.height)),c=document.createElement('canvas');
+        c.width=Math.round(im.width*s); c.height=Math.round(im.height*s);
+        c.getContext('2d').drawImage(im,0,0,c.width,c.height);
+        cb(c.toDataURL('image/jpeg',.85));
+      };
+      im.src=r.result;
+    };
+    r.readAsDataURL(file);
+  }
+  document.getElementById('toggle').onclick=function(){
+    var on=!document.body.classList.contains('editing'); setEdit(on); if(!on) save();
+  };
+  document.getElementById('print').onclick=function(){ var was=document.body.classList.contains('editing'); setEdit(false); window.print(); if(was) setEdit(true); };
+  document.addEventListener('input',function(e){ if(e.target.closest&&e.target.closest('.e')) save(); });
+  document.addEventListener('click',function(e){
+    var t=e.target;
+    var add=t.closest('[data-add]');
+    if(add){ var k=add.getAttribute('data-add'), l=document.querySelector('[data-list="'+k+'"]'); l.insertAdjacentHTML('beforeend',T[k]); setEdit(true); save(); return; }
+    if(t.closest('.del')){ var el=t.closest('.item,.tag,.dip'); if(el&&confirm('¿Eliminar este elemento?')){el.remove();refresh();save();} return; }
+    if(t.closest('#addDip')){ document.getElementById('fDip').click(); return; }
+    if(t.closest('#photo')&&document.body.classList.contains('editing')){ document.getElementById('fPhoto').click(); return; }
+    var im=t.closest('.dip img');
+    if(im){ var lb=document.getElementById('lb'); lb.querySelector('img').src=im.src; lb.classList.add('on'); return; }
+    if(t.closest('#lb')) document.getElementById('lb').classList.remove('on');
+  });
+  document.getElementById('fPhoto').onchange=function(e){
+    var f=e.target.files[0]; if(!f) return;
+    resize(f,function(u){ var p=document.getElementById('photo'); p.querySelector('img').src=u; p.classList.add('has'); save(); });
+    e.target.value='';
+  };
+  document.getElementById('fDip').onchange=function(e){
+    Array.prototype.forEach.call(e.target.files,function(f){
+      resize(f,function(u){
+        var fig=document.createElement('figure'); fig.className='dip';
+        fig.innerHTML='<button class="del">×</button><img alt="Diploma"><figcaption class="e">Nombre del diploma</figcaption>';
+        fig.querySelector('img').src=u;
+        document.getElementById('gal').appendChild(fig);
+        if(document.body.classList.contains('editing')) fig.querySelector('.e').setAttribute('contenteditable','true');
+        refresh(); save();
+      });
+    });
+    e.target.value='';
+  };
+  foot.addEventListener('input',save);
+  load(); setEdit(false);
+  foot.setAttribute('contenteditable','false');
+  var oldSet=setEdit; setEdit=function(on){oldSet(on); foot.setAttribute('contenteditable',on?'true':'false');};
+})();
+</script>
+</body>
+</html>
